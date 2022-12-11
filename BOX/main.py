@@ -3,6 +3,8 @@ import cv2
 import datetime
 import qrcode
 
+
+
 count = 1
 
 
@@ -65,10 +67,9 @@ def main():
 
             areaframe = cv2.rectangle(frame, (x, y), (x+w, y+h), (0,255,0), 2)
 
-            #100以上ならQR表示
             print(count)
             count = count + 1
-            if count > 100:
+            if count > 50:
                 makeQR(1)
 
         # ウィンドウで表示
