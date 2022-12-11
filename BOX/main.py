@@ -3,7 +3,21 @@ import cv2
 import datetime
 import qrcode
 
+
+
 count = 1
+
+
+def makeQR(number):
+    img = qrcode.make(number)
+    img.save('result.png')
+
+    img = cv2.imread('result.png')
+
+    cv2.imshow("Image", img)
+    cv2.waitKey(5000)
+    global count
+    count = 0
 
 
 def main():
@@ -53,7 +67,10 @@ def main():
 
             areaframe = cv2.rectangle(frame, (x, y), (x+w, y+h), (0,255,0), 2)
 
-
+            print(count)
+            count = count + 1
+            if count > 50:
+                makeQR(1)
 
         # ウィンドウで表示
         cv2.imshow('target_frame', frame)
