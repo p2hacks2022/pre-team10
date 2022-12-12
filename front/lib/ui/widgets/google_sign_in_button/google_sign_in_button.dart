@@ -10,7 +10,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class GoogleSignInButton extends HookConsumerWidget {
   final double height;
-  const GoogleSignInButton({Key? key, this.height = 50}) : super(key: key);
+  final Function(UserCredential?) onPressed;
+  const GoogleSignInButton(
+      {Key? key, this.height = 50, required this.onPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -34,7 +37,9 @@ class GoogleSignInButton extends HookConsumerWidget {
 
 void main() {
   ini();
-  preview(const Scaffold(
-    body: GoogleSignInButton(),
+  preview(Scaffold(
+    body: GoogleSignInButton(
+      onPressed: (_) {},
+    ),
   ));
 }
