@@ -16,7 +16,11 @@ class LoginScreen extends HookConsumerWidget {
       ),
       body: Center(
         child: GoogleSignInButton(
-          onPressed: (credential) {},
+          onPressed: (credential) {
+            if (credential != null) {
+              print(credential.user);
+            }
+          },
         ),
       ),
     );

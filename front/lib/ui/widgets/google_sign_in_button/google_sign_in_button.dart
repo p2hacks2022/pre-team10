@@ -23,12 +23,15 @@ class GoogleSignInButton extends HookConsumerWidget {
         Buttons.Google,
         onPressed: () async {
           // googleを使ってFirebaseにサインイン
-          await firebaseSignInWithGoogle();
+          final userCredential = await firebaseSignInWithGoogle();
           if (FirebaseAuth.instance.currentUser != null) {
             logger.d("firebase sign in success");
           } else {
             logger.w("firebase sign in failed");
           }
+          onPressed(
+            userCredential,
+          );
         },
       ),
     );
