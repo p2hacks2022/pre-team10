@@ -14,6 +14,11 @@ jobs:
         with:
           channel: 'stable'
           cache: true
+      - name: setup firebase options
+        run: |
+          cat <<EOF > front/lib/firebase_options.dart
+          ${{ secrets.FIREBASE_OPTIONS }}
+          EOF
       - name: Install dependencies
         run: |
           cd front
