@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:front/ini.dart';
 import 'package:front/router/app_router.dart';
 
 void main() {
+  ini(); //initialize app
   runApp(MyApp());
 }
 

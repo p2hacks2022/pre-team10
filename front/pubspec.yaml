@@ -41,10 +41,12 @@ dependencies:
   flutter_hooks: ^0.18.5+1
   freezed: ^2.3.2
   json_serializable: ^6.5.4
-  cloud_firestore: ^4.2.0
   google_sign_in: ^5.4.2
   google_sign_in_web: ^0.10.2
   logger: ^1.1.0
+  firebase_auth: ^4.2.0
+  cloud_firestore: ^4.2.0
+  firebase_core: ^2.4.0
 
 dev_dependencies:
   flutter_test:
