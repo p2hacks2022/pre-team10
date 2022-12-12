@@ -13,7 +13,12 @@
 part of 'app_router.dart';
 
 class _$AppRouter extends RootStackRouter {
-  _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
+  _$AppRouter({
+    GlobalKey<NavigatorState>? navigatorKey,
+    required this.authGuard,
+  }) : super(navigatorKey);
+
+  final AuthGuard authGuard;
 
   @override
   final Map<String, PageFactory> pagesMap = {
@@ -24,7 +29,15 @@ class _$AppRouter extends RootStackRouter {
         opaque: true,
         barrierDismissible: false,
       );
-    }
+    },
+    LoginRoute.name: (routeData) {
+      return CustomPage<bool>(
+        routeData: routeData,
+        child: const LoginScreen(),
+        opaque: true,
+        barrierDismissible: false,
+      );
+    },
   };
 
   @override
@@ -32,7 +45,12 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           MainRoute.name,
           path: '/',
-        )
+          guards: [authGuard],
+        ),
+        RouteConfig(
+          LoginRoute.name,
+          path: '/login-screen',
+        ),
       ];
 }
 
@@ -46,4 +64,16 @@ class MainRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'MainRoute';
+}
+
+/// generated route for
+/// [LoginScreen]
+class LoginRoute extends PageRouteInfo<void> {
+  const LoginRoute()
+      : super(
+          LoginRoute.name,
+          path: '/login-screen',
+        );
+
+  static const String name = 'LoginRoute';
 }

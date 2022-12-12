@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../ui/login/login_screen.dart';
 
-void preview(Widget child) {
-  ini();
+void preview(Widget child) async {
+  await ini();
   runApp(ProviderScope(child: MaterialApp(home: child)));
 }
