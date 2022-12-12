@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:front/domain/services/auth/firebase_sign_in.dart';
 import 'package:front/domain/services/auth/google_sign_in.dart';
 import 'package:front/util/logger.dart';
 import 'package:front/util/preview.dart';
@@ -11,14 +13,13 @@ class GoogleSignInButton extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return TextButton(
         onPressed: () async {
-          // Googleから許しを得る；；
-          final auth = await getAuthFromGoogle();
-          if (auth != null) {
-            logger.d("google sign in success");
+          // googleを使ってFirebaseにサインイン
+          await firebaseSignInWithGoogle();
+          if (FirebaseAuth.instance.currentUser != null) {
+            logger.d("firebase sign in success");
           } else {
-            logger.w("google sign in failed");
+            logger.w("firebase sign in failed");
           }
-          // ゆるされたらFirebaseにサインイン
         },
         child: Text("Googleでサインイン"));
   }
