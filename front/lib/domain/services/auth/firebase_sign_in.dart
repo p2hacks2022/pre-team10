@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../util/logger.dart';
 import 'google_sign_in.dart';
@@ -17,7 +18,14 @@ Future<UserCredential?> firebaseSignInWithGoogle() async {
       accessToken: auth.accessToken,
       idToken: auth.idToken,
     );
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+    final userCredential =
+        await FirebaseAuth.instance.signInWithCredential(credential);
+    if (userCredential.user != null) {
+      logger.d("firebase sign in success");
+    } else {
+      logger.w("firebase sign in failed\nit may be caused by firebase's bug");
+    }
+    return userCredential;
   }
   return null;
 }
