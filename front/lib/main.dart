@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:front/ini.dart';
+import 'package:front/router/app_router.dart';
+import 'package:front/router/auth_guard.dart';
 
-import 'app_router.dart';
-
-void main() {
+void main() async {
+  await ini(); //initialize app
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
-  final _appRouter = AppRouter();
+  final _appRouter = AppRouter(
+    authGuard: AuthGuard(),
+  );
 
   // This widget is the root of your application.
   @override

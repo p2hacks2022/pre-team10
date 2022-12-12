@@ -1,20 +1,32 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:front/ui/widgets/google_sign_in_button/google_sign_in_button.dart';
+import 'package:front/util/preview.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class LoginScreen extends HookConsumerWidget {
+  const LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: const Text('Login'),
       ),
       body: Center(
-        child: Text('Login'),
+        child: GoogleSignInButton(
+          onPressed: (credential) {
+            if (credential != null) {
+              print(credential.user);
+              context.router.pop<bool>(true);
+            }
+          },
+        ),
       ),
     );
   }
 }
 
 void main() {
-  runApp(ProviderScope(child: LoginScreen()));
+  preview(const LoginScreen());
 }
