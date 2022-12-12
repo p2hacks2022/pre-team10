@@ -1,10 +1,14 @@
 // Googleを使ってサインイン
 import 'package:google_sign_in/google_sign_in.dart';
 
-Future signInWithGoogle() async {
-  // 認証フローのトリガー
-  final googleUser = await GoogleSignIn(scopes: [
+final _googleSignIn = GoogleSignIn(
+  scopes: [
     'email',
-  ]).signIn();
+  ],
+);
+Future<GoogleSignInAuthentication?> getAuthFromGoogle() async {
+  // 認証フローのトリガー
+  final googleUser = await _googleSignIn.signIn();
   // リクエストから、認証情報を取得
+  return await googleUser?.authentication;
 }
