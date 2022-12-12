@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "433138306059",
+    "project_id": "trush-box",
+    "storage_bucket": "trush-box.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433138306059:android:6a60ec19816d71c9edcb0e",
+        "android_client_info": {
+          "package_name": "com.example.front"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "433138306059-2jse7n44a6008ktsoahd2nee2qe2ukfu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnaPrKaUpNY58xZisVzX3fn3Du359f0JI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "433138306059-2jse7n44a6008ktsoahd2nee2qe2ukfu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
