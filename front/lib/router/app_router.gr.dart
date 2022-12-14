@@ -23,19 +23,28 @@ class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     MainRoute.name: (routeData) {
-      return CustomPage<dynamic>(
+      return AdaptivePage<dynamic>(
         routeData: routeData,
         child: MainScreen(),
-        opaque: true,
-        barrierDismissible: false,
       );
     },
     LoginRoute.name: (routeData) {
-      return CustomPage<bool>(
+      return AdaptivePage<bool>(
         routeData: routeData,
         child: const LoginScreen(),
-        opaque: true,
-        barrierDismissible: false,
+      );
+    },
+    ThanksRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<ThanksRouteArgs>(
+          orElse: () =>
+              ThanksRouteArgs(base64TrashModel: pathParams.optString('trash')));
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: ThanksScreen(
+          base64TrashModel: args.base64TrashModel,
+          key: args.key,
+        ),
       );
     },
   };
@@ -49,7 +58,12 @@ class _$AppRouter extends RootStackRouter {
         ),
         RouteConfig(
           LoginRoute.name,
-          path: '/login-screen',
+          path: '/login',
+        ),
+        RouteConfig(
+          ThanksRoute.name,
+          path: '/thanks/:trash',
+          guards: [authGuard],
         ),
       ];
 }
@@ -72,8 +86,43 @@ class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute()
       : super(
           LoginRoute.name,
-          path: '/login-screen',
+          path: '/login',
         );
 
   static const String name = 'LoginRoute';
+}
+
+/// generated route for
+/// [ThanksScreen]
+class ThanksRoute extends PageRouteInfo<ThanksRouteArgs> {
+  ThanksRoute({
+    String? base64TrashModel,
+    Key? key,
+  }) : super(
+          ThanksRoute.name,
+          path: '/thanks/:trash',
+          args: ThanksRouteArgs(
+            base64TrashModel: base64TrashModel,
+            key: key,
+          ),
+          rawPathParams: {'trash': base64TrashModel},
+        );
+
+  static const String name = 'ThanksRoute';
+}
+
+class ThanksRouteArgs {
+  const ThanksRouteArgs({
+    this.base64TrashModel,
+    this.key,
+  });
+
+  final String? base64TrashModel;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'ThanksRouteArgs{base64TrashModel: $base64TrashModel, key: $key}';
+  }
 }

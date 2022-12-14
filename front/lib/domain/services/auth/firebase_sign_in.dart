@@ -8,7 +8,7 @@ Future<UserCredential?> firebaseSignInWithGoogle() async {
   // Googleを使ってサインイン
   final auth = await getAuthFromGoogle();
   if (auth != null) {
-    logger.d("google sign in success");
+    logger.i("google sign in success");
   } else {
     logger.w("google sign in failed");
   }
@@ -21,7 +21,7 @@ Future<UserCredential?> firebaseSignInWithGoogle() async {
     final userCredential =
         await FirebaseAuth.instance.signInWithCredential(credential);
     if (userCredential.user != null) {
-      logger.d("firebase sign in success");
+      logger.i("firebase sign in success");
     } else {
       logger.w("firebase sign in failed\nit may be caused by firebase's bug");
     }
