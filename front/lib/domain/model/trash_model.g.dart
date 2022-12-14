@@ -11,6 +11,7 @@ _$_TrashModel _$$_TrashModelFromJson(Map<String, dynamic> json) =>
       trashId: json['trashId'] as String? ?? "%void%",
       trashBoxId: json['trashBoxId'] as String? ?? "%void%",
       userId: json['userId'] as String? ?? "%void%",
+      count: json['count'] as int? ?? 0,
       createdAt: DateTime.parse(json['createdAt'] as String),
     );
 
@@ -19,5 +20,6 @@ Map<String, dynamic> _$$_TrashModelToJson(_$_TrashModel instance) =>
       'trashId': instance.trashId,
       'trashBoxId': instance.trashBoxId,
       'userId': instance.userId,
+      'count': instance.count,
       'createdAt': instance.createdAt.toIso8601String(),
     };
