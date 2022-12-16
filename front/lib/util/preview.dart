@@ -6,6 +6,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../ui/login/login_screen.dart';
 
 void preview(Widget child) async {
-  await ini();
+  await appInit();
   runApp(ProviderScope(child: MaterialApp(home: child)));
 }
