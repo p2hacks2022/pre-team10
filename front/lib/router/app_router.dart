@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:front/ui/main/main_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:front/ui/slot/slot_screen.dart';
-import 'package:front/ui/widgets/slot/slot_widget.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../ui/login/login_screen.dart';
@@ -19,8 +17,6 @@ part 'app_router.gr.dart';
       path: '/login',
     ),
     AutoRoute(page: ThanksScreen, path: '/thanks/:trash', guards: [AuthGuard]),
-    AutoRoute(page: SlotScreen, path: '/slot/:trash', guards: [AuthGuard]),
-    // AutoRoute(page: ReelScreen, path: '/reel', guards: [AuthGuard]),
   ],
 )
 // extend the generated private router
