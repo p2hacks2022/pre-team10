@@ -47,6 +47,19 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    SlotRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<SlotRouteArgs>(
+          orElse: () =>
+              SlotRouteArgs(encrypted: pathParams.optString('trash')));
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: SlotScreen(
+          encrypted: args.encrypted,
+          key: args.key,
+        ),
+      );
+    },
   };
 
   @override
@@ -63,6 +76,11 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           ThanksRoute.name,
           path: '/thanks/:trash',
+          guards: [authGuard],
+        ),
+        RouteConfig(
+          SlotRoute.name,
+          path: '/slot/:trash',
           guards: [authGuard],
         ),
       ];
@@ -124,5 +142,40 @@ class ThanksRouteArgs {
   @override
   String toString() {
     return 'ThanksRouteArgs{base64TrashModel: $base64TrashModel, key: $key}';
+  }
+}
+
+/// generated route for
+/// [SlotScreen]
+class SlotRoute extends PageRouteInfo<SlotRouteArgs> {
+  SlotRoute({
+    String? encrypted,
+    Key? key,
+  }) : super(
+          SlotRoute.name,
+          path: '/slot/:trash',
+          args: SlotRouteArgs(
+            encrypted: encrypted,
+            key: key,
+          ),
+          rawPathParams: {'trash': encrypted},
+        );
+
+  static const String name = 'SlotRoute';
+}
+
+class SlotRouteArgs {
+  const SlotRouteArgs({
+    this.encrypted,
+    this.key,
+  });
+
+  final String? encrypted;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'SlotRouteArgs{encrypted: $encrypted, key: $key}';
   }
 }
