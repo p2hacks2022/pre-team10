@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:front/util/logger.dart';
 import 'package:front/util/preview.dart';
+import 'package:front/util/qr_parser.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
@@ -58,11 +59,14 @@ class QRScreen extends HookConsumerWidget {
         onDetect: (barcode, args) {
           logger.i(barcode.format);
           //QRコードとEAN13コードのみ読み取る
-          if (barcode.format == BarcodeFormat.qrCode &&
+          if (barcode.format == BarcodeFormat.qrCode ||
               barcode.format == BarcodeFormat.ean13) {
             logger.i(barcode.rawValue);
             logger.i(args);
-            context.router.pop(barcode.rawValue);
+            final parsed = qrParse(barcode.rawValue!);
+            if (parsed != '') {
+              context.router.pop(barcode.rawValue);
+            }
           }
         },
       ),
