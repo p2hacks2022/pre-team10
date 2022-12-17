@@ -59,4 +59,4 @@ Python
 - rsa==4.9
 
 その他開発に使用したツール・サービス
-Firebase
+- Firebase
