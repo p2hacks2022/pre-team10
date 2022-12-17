@@ -7,7 +7,7 @@ import 'app_router.dart';
 
 class AuthGuard extends AutoRouteGuard {
   @override
-  void onNavigation(NavigationResolver resolver, StackRouter router) {
+  void onNavigation(NavigationResolver resolver, StackRouter router) async {
     if (FirebaseAuth.instance.currentUser != null) {
       // if user is authenticated we continue
       logger.i('User is authenticated');
@@ -15,9 +15,12 @@ class AuthGuard extends AutoRouteGuard {
       resolver.next(true);
     } else {
       logger.i('User is not authenticated');
-      router
-          .push<bool>(const LoginRoute())
-          .then((value) => resolver.next(value ?? false));
+      final flag = await router.push<bool>(LoginRoute(
+        onResult: (p0) {
+          logger.i('LoginRoute returned $p0');
+          resolver.next(p0);
+        },
+      ));
     }
   }
 }

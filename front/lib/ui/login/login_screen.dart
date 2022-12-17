@@ -1,12 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:front/domain/services/store/user_store.dart';
 import 'package:front/ui/widgets/google_sign_in_button/google_sign_in_button.dart';
 import 'package:front/util/logger.dart';
 import 'package:front/util/preview.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class LoginScreen extends HookConsumerWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({super.key, required this.onResult});
+  final void Function(bool) onResult;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -16,10 +18,13 @@ class LoginScreen extends HookConsumerWidget {
       ),
       body: Center(
         child: GoogleSignInButton(
-          onPressed: (credential) {
+          onPressed: (credential) async {
             if (credential != null) {
-              logger.i(credential.user);
-              context.router.pop<bool>(true);
+              onResult(true);
+              ref.read(userStoreProvider).signInUser(credential.user!.uid);
+              context.router.removeLast();
+            } else {
+              onResult(false);
             }
           },
         ),
@@ -29,5 +34,7 @@ class LoginScreen extends HookConsumerWidget {
 }
 
 void main() {
-  preview(const LoginScreen());
+  preview(LoginScreen(
+    onResult: (p0) {},
+  ));
 }
