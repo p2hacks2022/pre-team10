@@ -124,7 +124,8 @@ class ReelWidget extends HookConsumerWidget {
     'assets/slot9.png',
   ];
   final size = const Size(370, 1000);
-  ReelWidget(this.controller, {super.key});
+  final String trashBoxId;
+  ReelWidget(this.controller, this.trashBoxId, {super.key});
 
   late final canvas = [
     ReelCanvas(items, controller, size, 0),
@@ -215,8 +216,9 @@ class ReelWidget extends HookConsumerWidget {
               onPressed: () async {
                 if (controller.end) {
                   logger.wtf("you are win");
-                  ref.watch(userStoreProvider).addCoupon();
-                  await context.router.pop();
+                  final couponId =
+                      await ref.watch(userStoreProvider).addCoupon(trashBoxId);
+                  await context.router.replaceNamed('/thanks/${couponId}');
                 }
                 if (controller.restartCount > 0) {
                   controller.restart();

@@ -42,11 +42,11 @@ class _$AppRouter extends RootStackRouter {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<ThanksRouteArgs>(
           orElse: () =>
-              ThanksRouteArgs(base64TrashModel: pathParams.optString('trash')));
+              ThanksRouteArgs(couponId: pathParams.optString('coupon')));
       return AdaptivePage<dynamic>(
         routeData: routeData,
         child: ThanksScreen(
-          base64TrashModel: args.base64TrashModel,
+          couponId: args.couponId,
           key: args.key,
         ),
       );
@@ -87,7 +87,7 @@ class _$AppRouter extends RootStackRouter {
         ),
         RouteConfig(
           ThanksRoute.name,
-          path: '/thanks/:trash',
+          path: '/thanks/:coupon',
           guards: [authGuard],
         ),
         RouteConfig(
@@ -153,16 +153,16 @@ class LoginRouteArgs {
 /// [ThanksScreen]
 class ThanksRoute extends PageRouteInfo<ThanksRouteArgs> {
   ThanksRoute({
-    String? base64TrashModel,
+    String? couponId,
     Key? key,
   }) : super(
           ThanksRoute.name,
-          path: '/thanks/:trash',
+          path: '/thanks/:coupon',
           args: ThanksRouteArgs(
-            base64TrashModel: base64TrashModel,
+            couponId: couponId,
             key: key,
           ),
-          rawPathParams: {'trash': base64TrashModel},
+          rawPathParams: {'coupon': couponId},
         );
 
   static const String name = 'ThanksRoute';
@@ -170,17 +170,17 @@ class ThanksRoute extends PageRouteInfo<ThanksRouteArgs> {
 
 class ThanksRouteArgs {
   const ThanksRouteArgs({
-    this.base64TrashModel,
+    this.couponId,
     this.key,
   });
 
-  final String? base64TrashModel;
+  final String? couponId;
 
   final Key? key;
 
   @override
   String toString() {
-    return 'ThanksRouteArgs{base64TrashModel: $base64TrashModel, key: $key}';
+    return 'ThanksRouteArgs{couponId: $couponId, key: $key}';
   }
 }
 

@@ -204,6 +204,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.1"
+  coupon_uikit:
+    dependency: "direct main"
+    description:
+      name: coupon_uikit
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   crypto:
     dependency: transitive
     description:
@@ -332,6 +339,13 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_signin_button
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
+  flutter_slidable:
+    dependency: "direct main"
+    description:
+      name: flutter_slidable
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"

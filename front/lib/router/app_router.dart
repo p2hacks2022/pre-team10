@@ -16,7 +16,7 @@ part 'app_router.gr.dart';
   routes: <AutoRoute>[
     AutoRoute(page: MainScreen, path: '/', guards: [AuthGuard]),
     AutoRoute<bool>(page: LoginScreen, path: '/login'),
-    AutoRoute(page: ThanksScreen, path: '/thanks/:trash', guards: [AuthGuard]),
+    AutoRoute(page: ThanksScreen, path: '/thanks/:coupon', guards: [AuthGuard]),
     AutoRoute(page: SlotScreen, path: '/slot/:trash', guards: [AuthGuard]),
     AutoRoute(page: QRScreen, path: '/qr', guards: [AuthGuard]),
   ],

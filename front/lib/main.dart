@@ -9,7 +9,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() async {
   await appInit(); //initialize app
-  await FirebaseAuth.instance.signOut();
+  //await FirebaseAuth.instance.signOut();
   runApp(ProviderScope(child: MyApp()));
 }
 

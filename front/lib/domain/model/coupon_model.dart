@@ -7,6 +7,8 @@ part 'coupon_model.g.dart';
 class CouponModel with _$CouponModel {
   const factory CouponModel({
     @Default(10.0) double discount,
+    @Default('') String couponId,
+    @Default('') String trashBoxId,
   }) = _CouponModel;
   factory CouponModel.fromJson(Map<String, dynamic> json) =>
       _$CouponModelFromJson(json);
