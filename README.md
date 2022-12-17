@@ -44,7 +44,6 @@ Dart
 - 
 
 Python
-
 - tkinter
 - threading
 - time
@@ -60,3 +59,4 @@ Python
 
 その他開発に使用したツール・サービス
 - Firebase
+- Raspberry Pi
