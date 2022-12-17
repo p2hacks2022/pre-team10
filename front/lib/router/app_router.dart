@@ -1,6 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:front/ui/main/main_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:front/ui/qr/qr_screen.dart';
+import 'package:front/ui/slot/slot_screen.dart';
+
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../ui/login/login_screen.dart';
@@ -12,11 +15,10 @@ part 'app_router.gr.dart';
   replaceInRouteName: 'Screen,Route',
   routes: <AutoRoute>[
     AutoRoute(page: MainScreen, path: '/', guards: [AuthGuard]),
-    AutoRoute<bool>(
-      page: LoginScreen,
-      path: '/login',
-    ),
+    AutoRoute<bool>(page: LoginScreen, path: '/login'),
     AutoRoute(page: ThanksScreen, path: '/thanks/:trash', guards: [AuthGuard]),
+    AutoRoute(page: SlotScreen, path: '/slot/:trash', guards: [AuthGuard]),
+    AutoRoute(page: QRScreen, path: '/qr', guards: [AuthGuard]),
   ],
 )
 // extend the generated private router

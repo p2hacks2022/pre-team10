@@ -12,10 +12,15 @@ _$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
               ?.map((e) => e as String)
               .toList() ??
           const [],
+      couponIds: (json['couponIds'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$_UserModelToJson(_$_UserModel instance) =>
     <String, dynamic>{
       'userId': instance.userId,
       'trashLogIds': instance.trashLogIds,
+      'couponIds': instance.couponIds,
     };

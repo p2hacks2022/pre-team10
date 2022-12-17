@@ -50,6 +50,9 @@ dependencies:
   flutter_signin_button: ^2.0.0
   mobile_scanner: ^2.1.0
   encrypt: ^5.0.1
+  funvas: ^0.1.7
+  assets_audio_player: ^3.0.6
+  just_audio: ^0.9.30
 
 dev_dependencies:
   flutter_test:
@@ -77,9 +80,18 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/slot1.png
+    - assets/slot2.png
+    - assets/slot3.png
+    - assets/slot4.png
+    - assets/slot5.png
+    - assets/slot6.png
+    - assets/slot7.png
+    - assets/slot8.png
+    - assets/slot9.png
+    - assets/atari.mp3
+    - assets/button.mp3
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

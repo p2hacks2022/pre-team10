@@ -39,7 +39,7 @@ class GoogleSignInButton extends HookConsumerWidget {
 }
 
 void main() {
-  ini();
+  appInit();
   preview(Scaffold(
     body: GoogleSignInButton(
       onPressed: (_) {},
