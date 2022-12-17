@@ -41,7 +41,26 @@ Python
 利用したフレームワーク・ライブラリ  
 
 Dart
-- 
+- flutter
+  - cupertino_icons: ^1.0.2
+  - hooks_riverpod: ^2.1.1
+  - auto_route: ^5.0.4
+  - flutter_hooks: ^0.18.5+1
+  - freezed: ^2.3.2
+  - json_serializable: ^6.5.4
+  - google_sign_in: ^5.4.2
+  - google_sign_in_web: ^0.10.2
+  - logger: ^1.1.0
+  - firebase_auth: ^4.2.0
+  - cloud_firestore: ^4.2.0
+  - firebase_core: ^2.4.0
+  - flutter_signin_button: ^2.0.0
+  - mobile_scanner: ^2.1.0
+  - encrypt: ^5.0.1
+  - funvas: ^0.1.7
+  - assets_audio_player: ^3.0.6
+  - just_audio: ^0.9.30
+  
 
 Python
 - tkinter
