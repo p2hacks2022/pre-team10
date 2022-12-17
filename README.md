@@ -45,6 +45,10 @@ Dart
 
 Python
 
+- tkinter
+- threading
+- time
+- uuid
 - colorama==0.4.6
 - numpy==1.23.5
 - opencv-python==4.6.0.66
