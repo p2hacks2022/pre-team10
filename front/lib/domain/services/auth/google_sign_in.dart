@@ -8,9 +8,7 @@ Future<GoogleSignInAuthentication?> getAuthFromGoogle() async {
     ],
   );
   // 認証フローのトリガー
-  print("google sign in $_googleSignIn");
   final googleUser = await _googleSignIn.signIn();
-  print(googleUser);
   // リクエストから、認証情報を取得
   return await googleUser?.authentication;
 }
