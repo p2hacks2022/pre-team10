@@ -24,7 +24,15 @@ class UserStoreImpl implements UserStore {
   UserStoreImpl({required FireStore fireStore}) : _fireStore = fireStore;
   Future<void> signInUser(String uid) async {
     final data = await _fireStore.getData('users');
-    if (data.isEmpty) {
+
+    bool isExist = false;
+    for (final d in data) {
+      if (d['userId'] == uid) {
+        isExist = true;
+        break;
+      }
+    }
+    if (!isExist) {
       logger.wtf(data);
       await _fireStore.updateData('users',
           UserModel(userId: uid, couponIds: [], trashLogIds: []).toJson(),

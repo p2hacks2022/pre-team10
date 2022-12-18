@@ -44,7 +44,7 @@ class ThanksScreen extends HookConsumerWidget {
                       couponWidgetModel?.couponModel ?? CouponModel())),
               TextButton(
                   onPressed: () {
-                    context.router.pop();
+                    context.router.replaceNamed('/');
                   },
                   child: Text("終わる")),
               Spacer(),

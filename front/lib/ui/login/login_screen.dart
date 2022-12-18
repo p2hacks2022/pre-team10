@@ -21,6 +21,7 @@ class LoginScreen extends HookConsumerWidget {
           onPressed: (credential) async {
             if (credential != null) {
               onResult(true);
+              logger.i('LoginScreen: credential: ${credential.user!.uid}');
               ref.read(userStoreProvider).signInUser(credential.user!.uid);
               context.router.removeLast();
             } else {

@@ -219,9 +219,10 @@ class ReelWidget extends HookConsumerWidget {
                   final couponId =
                       await ref.watch(userStoreProvider).addCoupon(trashBoxId);
                   await context.router.replaceNamed('/thanks/${couponId}');
-                }
-                if (controller.restartCount > 0) {
+                } else if (controller.restartCount > 0) {
                   controller.restart();
+                } else {
+                  context.router.pop();
                 }
               },
               child: Text("次")),

@@ -1,12 +1,12 @@
 import 'package:front/util/logger.dart';
 
+//https://aa.com/#/slot/AAAAAA to /slot/AAAAAA
 String qrParse(String url) {
-  final uri = Uri.parse(url);
-  final path = uri.path;
-  logger.i('url path is ${path}');
-  final pathList = path.split('/');
-  if (pathList.length > 2) {
-    return pathList[2];
+  final parsed = url.split('#');
+  if (parsed.length == 2) {
+    return parsed[1];
+  } else {
+    logger.e('QRコードの形式が不正です');
+    return '';
   }
-  return '';
 }
