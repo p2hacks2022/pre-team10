@@ -23,6 +23,7 @@ mixin _$TrashModel {
   String get trashId => throw _privateConstructorUsedError;
   String get trashBoxId => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
+  int get count => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +39,11 @@ abstract class $TrashModelCopyWith<$Res> {
       _$TrashModelCopyWithImpl<$Res, TrashModel>;
   @useResult
   $Res call(
-      {String trashId, String trashBoxId, String userId, DateTime createdAt});
+      {String trashId,
+      String trashBoxId,
+      String userId,
+      int count,
+      DateTime createdAt});
 }
 
 /// @nodoc
@@ -57,6 +62,7 @@ class _$TrashModelCopyWithImpl<$Res, $Val extends TrashModel>
     Object? trashId = null,
     Object? trashBoxId = null,
     Object? userId = null,
+    Object? count = null,
     Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
@@ -72,6 +78,10 @@ class _$TrashModelCopyWithImpl<$Res, $Val extends TrashModel>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
+      count: null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -89,7 +99,11 @@ abstract class _$$_TrashModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String trashId, String trashBoxId, String userId, DateTime createdAt});
+      {String trashId,
+      String trashBoxId,
+      String userId,
+      int count,
+      DateTime createdAt});
 }
 
 /// @nodoc
@@ -106,6 +120,7 @@ class __$$_TrashModelCopyWithImpl<$Res>
     Object? trashId = null,
     Object? trashBoxId = null,
     Object? userId = null,
+    Object? count = null,
     Object? createdAt = null,
   }) {
     return _then(_$_TrashModel(
@@ -121,6 +136,10 @@ class __$$_TrashModelCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
+      count: null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -136,6 +155,7 @@ class _$_TrashModel with DiagnosticableTreeMixin implements _TrashModel {
       {this.trashId = "%void%",
       this.trashBoxId = "%void%",
       this.userId = "%void%",
+      this.count = 0,
       required this.createdAt});
 
   factory _$_TrashModel.fromJson(Map<String, dynamic> json) =>
@@ -151,11 +171,14 @@ class _$_TrashModel with DiagnosticableTreeMixin implements _TrashModel {
   @JsonKey()
   final String userId;
   @override
+  @JsonKey()
+  final int count;
+  @override
   final DateTime createdAt;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TrashModel(trashId: $trashId, trashBoxId: $trashBoxId, userId: $userId, createdAt: $createdAt)';
+    return 'TrashModel(trashId: $trashId, trashBoxId: $trashBoxId, userId: $userId, count: $count, createdAt: $createdAt)';
   }
 
   @override
@@ -166,6 +189,7 @@ class _$_TrashModel with DiagnosticableTreeMixin implements _TrashModel {
       ..add(DiagnosticsProperty('trashId', trashId))
       ..add(DiagnosticsProperty('trashBoxId', trashBoxId))
       ..add(DiagnosticsProperty('userId', userId))
+      ..add(DiagnosticsProperty('count', count))
       ..add(DiagnosticsProperty('createdAt', createdAt));
   }
 
@@ -178,6 +202,7 @@ class _$_TrashModel with DiagnosticableTreeMixin implements _TrashModel {
             (identical(other.trashBoxId, trashBoxId) ||
                 other.trashBoxId == trashBoxId) &&
             (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.count, count) || other.count == count) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
@@ -185,7 +210,7 @@ class _$_TrashModel with DiagnosticableTreeMixin implements _TrashModel {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, trashId, trashBoxId, userId, createdAt);
+      Object.hash(runtimeType, trashId, trashBoxId, userId, count, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -206,6 +231,7 @@ abstract class _TrashModel implements TrashModel {
       {final String trashId,
       final String trashBoxId,
       final String userId,
+      final int count,
       required final DateTime createdAt}) = _$_TrashModel;
 
   factory _TrashModel.fromJson(Map<String, dynamic> json) =
@@ -217,6 +243,8 @@ abstract class _TrashModel implements TrashModel {
   String get trashBoxId;
   @override
   String get userId;
+  @override
+  int get count;
   @override
   DateTime get createdAt;
   @override
