@@ -222,7 +222,7 @@ class ReelWidget extends HookConsumerWidget {
                 } else if (controller.restartCount > 0) {
                   controller.restart();
                 } else {
-                  context.router.pop();
+                  context.router.replaceNamed('/');
                 }
               },
               child: Text("次")),
