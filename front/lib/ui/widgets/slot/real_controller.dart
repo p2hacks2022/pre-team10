@@ -43,19 +43,29 @@ class ReelController {
     //全部Trueなら
     if (!flags.contains(false)) {
       if (stopIndex[0] == stopIndex[1] && stopIndex[1] == stopIndex[2]) {
-        play(path: 'assets/atari.mp3', volume: 0.1);
+        play(
+            path:
+                'https://www.sansei-rd.co.jp/products04/garo_goldstorm/contents/se-download/sounds/garo_se05_gzanbaken.mp3',
+            volume: 0.1);
         end = true;
       } else {
         double random = Random().nextDouble();
         if (random < chance) {
-          play(path: 'assets/chance.mp3', volume: 0.1);
+          play(
+              path:
+                  'https://www.sansei-rd.co.jp/products04/garo_goldstorm/contents/se-download/sounds/garo_se01_garohoryu.html',
+              volume: 0.1);
           hit = true;
         } else {
-          play(path: 'assets/button.mp3', volume: 1.0);
+          play(
+              path: 'https://soundeffect-lab.info/sound/button/mp3/beep2.mp3',
+              volume: 1.0);
         }
       }
     } else {
-      play(path: 'assets/button.mp3', volume: 1.0);
+      play(
+          path: 'https://soundeffect-lab.info/sound/button/mp3/beep2.mp3',
+          volume: 1.0);
     }
   }
 

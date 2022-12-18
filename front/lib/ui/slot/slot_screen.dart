@@ -61,7 +61,9 @@ class SlotContent extends HookConsumerWidget {
       });
     }, []);
 
-    return ReelWidget(ReelController(true, controller.state.count)); //実装を絶対読むな
+    return ReelWidget(
+        ReelController(true, controller.state.count), //デバッグ用で必ず当たるようにしてます
+        controller.state.trashBoxId); //実装を絶対読むな
   }
 }
 

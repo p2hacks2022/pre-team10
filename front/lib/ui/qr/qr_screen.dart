@@ -65,7 +65,7 @@ class QRScreen extends HookConsumerWidget {
             logger.i(args);
             final parsed = qrParse(barcode.rawValue!);
             if (parsed != '') {
-              context.router.pop(barcode.rawValue);
+              context.router.pushNamed(parsed);
             }
           }
         },

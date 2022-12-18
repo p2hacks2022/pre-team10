@@ -41,8 +41,7 @@ dependencies:
   flutter_hooks: ^0.18.5+1
   freezed: ^2.3.2
   json_serializable: ^6.5.4
-  google_sign_in: ^5.4.2
-  google_sign_in_web: ^0.10.2
+  google_sign_in: ^5.0.4
   logger: ^1.1.0
   firebase_auth: ^4.2.0
   cloud_firestore: ^4.2.0
@@ -53,6 +52,10 @@ dependencies:
   funvas: ^0.1.7
   assets_audio_player: ^3.0.6
   just_audio: ^0.9.30
+  flutter_slidable: ^2.0.0
+  coupon_uikit: ^0.1.0
+  google_sign_in_web: ^0.10.0
+  flex_color_scheme: ^6.1.1
 
 dev_dependencies:
   flutter_test:

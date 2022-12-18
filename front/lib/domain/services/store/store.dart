@@ -8,13 +8,20 @@ class FireStoreImpl implements FireStore {
   //データを読み込む
   final firestore = FirebaseFirestore.instance;
   @override
-  Future<List<Map<String, dynamic>>> getData(String collection) async {
+  Future<List<Map<String, dynamic>>> getData(String collection,
+      {String doc = ""}) async {
     logger.d(firestore.collection(collection).path);
     final snap = await firestore.collection(collection).get();
 
     List<Map<String, dynamic>> list = [];
     for (var element in snap.docs) {
-      list.add(element.data());
+      if (doc == "") {
+        list.add(element.data());
+      } else {
+        if (element.id == doc) {
+          list.add(element.data());
+        }
+      }
     }
     return list;
   }
@@ -32,13 +39,16 @@ class FireStoreImpl implements FireStore {
   }
 
   @override
-  updateData(String collection, Map<String, dynamic> data,
+  Future<String> updateData(String collection, Map<String, dynamic> data,
       {String document = ""}) async {
     if (document == "") {
-      await firestore.collection(collection).add(data);
+      //dataをaddしたらdocumentのIDを返す
+      final doc = await firestore.collection(collection).add(data);
+      return doc.id;
     } else {
       logger.e(document);
       await firestore.collection(collection).doc(document).set(data);
+      return document;
     }
   }
 
@@ -61,9 +71,9 @@ class FireStoreImpl implements FireStore {
 }
 
 abstract class FireStore {
-  Future<List<Map<String, dynamic>>> getData(String path);
+  Future<List<Map<String, dynamic>>> getData(String path, {String doc = ""});
   Stream<List<Map<String, dynamic>>> streamData(String path);
-  updateData(String collection, Map<String, dynamic> data,
+  Future<String> updateData(String collection, Map<String, dynamic> data,
       {String document = ""});
   Future<void> addArray(
       String collection, String document, String array, List<dynamic> data);

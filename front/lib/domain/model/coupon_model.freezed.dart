@@ -21,6 +21,8 @@ CouponModel _$CouponModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CouponModel {
   double get discount => throw _privateConstructorUsedError;
+  String get couponId => throw _privateConstructorUsedError;
+  String get trashBoxId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +36,7 @@ abstract class $CouponModelCopyWith<$Res> {
           CouponModel value, $Res Function(CouponModel) then) =
       _$CouponModelCopyWithImpl<$Res, CouponModel>;
   @useResult
-  $Res call({double discount});
+  $Res call({double discount, String couponId, String trashBoxId});
 }
 
 /// @nodoc
@@ -51,12 +53,22 @@ class _$CouponModelCopyWithImpl<$Res, $Val extends CouponModel>
   @override
   $Res call({
     Object? discount = null,
+    Object? couponId = null,
+    Object? trashBoxId = null,
   }) {
     return _then(_value.copyWith(
       discount: null == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as double,
+      couponId: null == couponId
+          ? _value.couponId
+          : couponId // ignore: cast_nullable_to_non_nullable
+              as String,
+      trashBoxId: null == trashBoxId
+          ? _value.trashBoxId
+          : trashBoxId // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -69,7 +81,7 @@ abstract class _$$_CouponModelCopyWith<$Res>
       __$$_CouponModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double discount});
+  $Res call({double discount, String couponId, String trashBoxId});
 }
 
 /// @nodoc
@@ -84,12 +96,22 @@ class __$$_CouponModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? discount = null,
+    Object? couponId = null,
+    Object? trashBoxId = null,
   }) {
     return _then(_$_CouponModel(
       discount: null == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as double,
+      couponId: null == couponId
+          ? _value.couponId
+          : couponId // ignore: cast_nullable_to_non_nullable
+              as String,
+      trashBoxId: null == trashBoxId
+          ? _value.trashBoxId
+          : trashBoxId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -97,7 +119,8 @@ class __$$_CouponModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CouponModel with DiagnosticableTreeMixin implements _CouponModel {
-  const _$_CouponModel({this.discount = 0.0});
+  const _$_CouponModel(
+      {this.discount = 10.0, this.couponId = '', this.trashBoxId = ''});
 
   factory _$_CouponModel.fromJson(Map<String, dynamic> json) =>
       _$$_CouponModelFromJson(json);
@@ -105,10 +128,16 @@ class _$_CouponModel with DiagnosticableTreeMixin implements _CouponModel {
   @override
   @JsonKey()
   final double discount;
+  @override
+  @JsonKey()
+  final String couponId;
+  @override
+  @JsonKey()
+  final String trashBoxId;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CouponModel(discount: $discount)';
+    return 'CouponModel(discount: $discount, couponId: $couponId, trashBoxId: $trashBoxId)';
   }
 
   @override
@@ -116,7 +145,9 @@ class _$_CouponModel with DiagnosticableTreeMixin implements _CouponModel {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'CouponModel'))
-      ..add(DiagnosticsProperty('discount', discount));
+      ..add(DiagnosticsProperty('discount', discount))
+      ..add(DiagnosticsProperty('couponId', couponId))
+      ..add(DiagnosticsProperty('trashBoxId', trashBoxId));
   }
 
   @override
@@ -125,12 +156,16 @@ class _$_CouponModel with DiagnosticableTreeMixin implements _CouponModel {
         (other.runtimeType == runtimeType &&
             other is _$_CouponModel &&
             (identical(other.discount, discount) ||
-                other.discount == discount));
+                other.discount == discount) &&
+            (identical(other.couponId, couponId) ||
+                other.couponId == couponId) &&
+            (identical(other.trashBoxId, trashBoxId) ||
+                other.trashBoxId == trashBoxId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, discount);
+  int get hashCode => Object.hash(runtimeType, discount, couponId, trashBoxId);
 
   @JsonKey(ignore: true)
   @override
@@ -147,13 +182,20 @@ class _$_CouponModel with DiagnosticableTreeMixin implements _CouponModel {
 }
 
 abstract class _CouponModel implements CouponModel {
-  const factory _CouponModel({final double discount}) = _$_CouponModel;
+  const factory _CouponModel(
+      {final double discount,
+      final String couponId,
+      final String trashBoxId}) = _$_CouponModel;
 
   factory _CouponModel.fromJson(Map<String, dynamic> json) =
       _$_CouponModel.fromJson;
 
   @override
   double get discount;
+  @override
+  String get couponId;
+  @override
+  String get trashBoxId;
   @override
   @JsonKey(ignore: true)
   _$$_CouponModelCopyWith<_$_CouponModel> get copyWith =>
